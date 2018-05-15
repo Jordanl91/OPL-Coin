@@ -38,7 +38,7 @@ What you will need:
         “a9b31238d062ccb5f4b1eb6c3041d369cc014f5e6df38d2d303d791acd4302f2”: “0”
        }
 
-Save both of these numbers.
+Save both of these numbers.   
 8. Open the masternode.conf file via menu Tools→ Open Masternode Configuration File. Without any blank lines type in a space-delimited single line:
 
        mn1 YOUR_VPS_IP:5567 YOURPRIVKEY TX_OUTPUT TX_ID
