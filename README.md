@@ -8,9 +8,9 @@ OPL (Open Platform) Masternode Guide v0.1.0
 OPL Masternode Setup and Maintenance Guide
 
 Requirements
-•	3000 more OPL
-•	Linux VPS (best ubuntu 16.04)
-•	OPEN PORT: 5567
+•3000 more OPL
+•Linux VPS (best ubuntu 16.04)
+•OPEN PORT: 5567
 
 
 While it is possible to run masternodes (MN) both in a local wallet as well as in a separate instance on Windows this guide describes the most popular way to set up a MN using a local Windows/Linux qt wallet and a Linux VPS server running a MN instance.
