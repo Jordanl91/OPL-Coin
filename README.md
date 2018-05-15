@@ -92,7 +92,7 @@ To check current rules on an active ufw:
     sudo ufw status
 
 7. You can now proceed with the rest of the guide specific to installation of the masternode. Very useful commands and tools you will need are:
-
+```
 `ls` – list files in the current directory
 `ls -la` – list files in the current directory including hidden files 
 `pwd` – get current directory
@@ -102,16 +102,16 @@ To check current rules on an active ufw:
 `popd` – change to the previously used directory and pop it from the stack
 `screen` – multiple terminals in one
 `screen -R` – reconnect to previous screen session after a new login via putty.
-
+```
 [Installation of Dependencies]
 ===============================================
 
 All installation commands require you either being a root or prepending them with sudo. First you need to update Ubuntu 16.04 distro via executing these 3 commands:
-
+```
     apt-get update
     apt-get upgrade
     apt-get dist-upgrade
-
+```
 The libraries you need to install: required: libssl, libboost, libevent, miniupnpc, libdb4.8 optional: libzmq3, libminiupnpc Editor: nano (or vim/emacs if you prefer)
 
 ```
@@ -125,42 +125,36 @@ apt -y install libdb4.8-dev libdb4.8++-dev
 ==============================================
 
 Create OPL directory and switch to it:
-
+```
     mkdir .opl
     cd .opl
-
-wget https://github.com/opl-coin/opl.coin/releases/download/0.12.3.1/opl.0.12.3.1.linux.x64.zip && unzip opl.0.12.3.1.linux.x64.zip -d /usr/local/bin/
-
-
-
+```
 Download and extract linux binaries:
-
+```
 wget https://github.com/opl-coin/opl.coin/releases/download/0.12.3.1/opl.0.12.3.1.linux.x64.zip && unzip -j opl.0.12.3.1.linux.x64.zip -d /usr/local/bin/ && chmod +x /usr/local/bin/opl*
 rm -rf opl.0.12.3.1.linux.x64.zip
-	
+```	
 You should have now the daemon opld and wallet opl-cli files in `/usr/local/bin/` directory. This will allow you to start the wallet in any directory - Start the daemon:
-
+```
     opld --daemon
-
+```
 You should see the output: OPL Core server starting
 
 Now stop the server:
-
+```
     opl-cli stop
-
+```
 You should see the output: OPL Core server stopping What this should have accomplished is creating a .muncore directory in your home directory and populating it with the config files so that you would not need to create them yourself. Go into .muncore directory:
-
+```
     cd ~/.oplcore
-
+```
 You will need to edit 2 files : opl.conf and masternode.conf with nano or any other text editor:
-
+```
     nano opl.conf
-   
     nano masternode.conf
-
-
+```
 In opl.conf you need to create unique user name, user password, masternode priv key (created in the qt local wallet step):
-
+```
    	listen=1
 	server=1
 	daemon=1
@@ -171,25 +165,25 @@ In opl.conf you need to create unique user name, user password, masternode priv 
 	externalip=<YOUR_VPS_IP_ADDRESS>:5567
 	masternodeprivkey=<MASTERNODE_PRIVATE_KEY>
 	masternode=1
-
+```
 In masternode.conf file you need to copy/paste the line from the masternodes.conf file in the qt local wallet:
-
+```
     mn1 YOUR_VPS_IP:12548 YOUR_MASTERNODE_PRIV_KEY TX_OUTPUT TX_ID
-
+```
 For example:
-
+```
     mn1 45.76.250.89:5567 92TPhvQjKd5vMiBcwbRpq3g4CnPVGUAZGrorZJPNJoohgCu9QkF a9b31238d062ccb5f4b1eb6c3041d369cc014f5e6df28d2d303d791acd4302f2 0
-
+```
 Now you can start the daemon again. Start the daemon:
-
+```
     opld --daemon
-
+```
 You should see the output: OPL Core server starting
 
 Let’s observe the node synchronization process. Execute:
-
+```
     opl-cli getinfo
-
+```
 The output should look similar to:
 ```
 {
@@ -215,11 +209,11 @@ The output should look similar to:
 We are looking for the block count to be positive and eventually matching the number of blocks indicated by the local wallet and block explorer.
 
 More checking:
-
+```
     opl-cli mnsync status
-
+```
 Should produce an output similar to:
-
+```
     {
      "AssetID": 999,
      "AssetName": "MASTERNODE_SYNC_FINISHED", 
@@ -231,21 +225,21 @@ Should produce an output similar to:
      "IsSynced": true,
      "IsFailed": false
     }
-
+```
 Periodically running the same command you will be able to see as different phases of synchronization complete making blockchain, MN list, MN winners list synchronized one by one. 
 
 Now you can check the masternode status:
-
+```
     opl-cli masternode status
-
+```
 The output from an uninitialized MN will be similar to:
-
+```
     { 
      "outpoint": "0000000000000000000000000000000000000000000000000000000000000000-4294967295",
      "service": "45.76.250.89:5567",
      "status": "Not capable masternode: Masternode not in masternode list"
     }
-
+```
 
 [Node start]
 =========================================
@@ -253,24 +247,24 @@ The output from an uninitialized MN will be similar to:
 The simplest way to start the masternode is from the local qt wallet. Go to your qt wallet “Masternodes” tab. Go there, switch to the tab “My Masternodes”, select the line with your MN and click the button “Start alias”, or right click on the line and use the context pop-up menu. Alternatively when starting the node(s) for the first time you can click the button “Start MISSING” to start all nodes that currently have the status “MISSING”. If you have some already enabled nodes and want to start a new one do not click the button “Start all” because this will restart the already enabled nodes and place them at the end of the paying queue. The status should change to “PRE_ENABLED” and some time later to “ENABLED” (varies, allow for up to 30 minutes). 
 
 Check the masternode status on the VPS:
-
+```
     opl-cli masternode status
-
+```
 The output from an uninitialized MN will be similar to:
-
+```
        { 
         "outpoint": "112f474f1e9701bfa424f5837dda3c6b3ae2454d44cabc593f299879fd790527-1",
         "service": "45.76.250.89:5567",
         "payee": "MbhkCopfkW7HVycCw7NkY7SAdFK9uVmjSr",
         "status": "Masternode successfully started"
        }
-
+```
 If the masternode appears healthy but you are worried about payments not being when expected you can check if your node address is on the list of masternode winners from either the cli wallet or the debug window:
-
+```
        opl-cli masternode winners
-
+```
 The output should have all block assignments to MNs that will be paid from these blocks chosen by consensus vote by all MNs, similar to this snapshot from the testnet:
-
+```
        { 
         "1652": "yd6EWWKDqfcHCCWxVYPuNV7fmgRrSNZra7:10",
         "1653": "yQyKNbW3mUcS21xGXpab1Da3Whs64YEprJ:10",
@@ -303,21 +297,22 @@ The output should have all block assignments to MNs that will be paid from these
         "1680": "Unknown",
         "1681": "Unknown"
        }
+```
 
-On the mainnet you should see a series of upcoming 20 blocks all assigned to MNs in roughly a reverse chronological order of when they got paid the last time.If you see the node status being WATCHDOG_EXPIRED it means the sentinel script is required to be run in parallel with the masternode on the VPS to report its health status to the network and either there is a problem with the node or with the sentinel. Please refer to the sentinel setup guide. This status will be followed by NEW_START_REQUIRED, which is also triggered after the node has been taken offline for a considerable stretch of time sufficient for the rest of the network to notice it.
-
+On the mainnet you should see a series of upcoming 20 blocks all assigned to MNs in roughly a reverse chronological order of when they got paid the last time.
 
 [Running wallet automagically after Reboot]
 ==========================================
 
-Edit crontab 
-
-       crontab
-
- 	2. /bin/nano        <---- easiest
+Edit crontab
+```
+crontab
+2. /bin/nano        <---- easiest
+```
 Choose number 2 nano to edit, enter the command below and save (ctrl+o, [Enter], . 
+```
+@reboot /usr/local/bin/opld -daemon
+```
 
-       @reboot /usr/local/bin/opld -daemon
-
-
-Did this help you? Please donate OPL to Vz16PcurfENgodexZhpqRufEk5NmUt3Fhv Help me, help others!
+[Did this help you? Please donate OPL to Vz16PcurfENgodexZhpqRufEk5NmUt3Fhv Help me, help others!]
+=================================================================================================
