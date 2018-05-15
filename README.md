@@ -301,14 +301,14 @@ On the mainnet you should see a series of upcoming 20 blocks all assigned to MNs
 [Running wallet automagically after Reboot]
 ==========================================
 
-Edit crontab
+Create a Crontab
 ```
 crontab
 2. /bin/nano        <---- easiest
 ```
-Choose number 2 nano to edit, enter the command below and save (ctrl+o, [Enter], . 
+Choose number 2 nano to edit, enter the command below and save (ctrl+o, [Enter],ctrl+x). 
 ```
 @reboot /usr/local/bin/opld -daemon
 ```
 
-###Did this help you? Please donate OPL to **Vz16PcurfENgodexZhpqRufEk5NmUt3Fhv** Help me, help others!
+###Did this help you? Please donate OPL to **Vz16PcurfENgodexZhpqRufEk5NmUt3Fhv** Help me, help others!###
