@@ -39,6 +39,7 @@ What you will need:
        }
 
 Save both of these numbers.   
+
 8. Open the masternode.conf file via menu Tools→ Open Masternode Configuration File. Without any blank lines type in a space-delimited single line:
 
        mn1 YOUR_VPS_IP:5567 YOURPRIVKEY TX_OUTPUT TX_ID
