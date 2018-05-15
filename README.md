@@ -1,3 +1,5 @@
+
+https://opc.site/assets/logo-2.png
 # Open Platform - Masternodes
 OPL (Open Platform) Masternode Guide v0.1.0
 OPL Masternode Setup and Maintenance Guide
@@ -314,4 +316,4 @@ Choose number 2 nano to edit, enter the command below and save (ctrl+o, [Enter],
 @reboot /usr/local/bin/opld -daemon
 ```
 
-[Did this help you? Please donate OPL to Vz16PcurfENgodexZhpqRufEk5NmUt3Fhv Help me, help others!]
+###Did this help you? Please donate OPL to **Vz16PcurfENgodexZhpqRufEk5NmUt3Fhv** Help me, help others!
