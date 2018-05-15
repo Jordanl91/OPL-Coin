@@ -1,5 +1,5 @@
 
-![alt text](https://opc.site/assets/logo-2.png "OPL is the Best!")
+<div style="text-align:center"><img src ="https://opc.site/assets/logo-2.png "OPL is the Best!"" /></div>
 # Open Platform - Masternodes
 OPL (Open Platform) Masternode Guide v0.1.0
 OPL Masternode Setup and Maintenance Guide
