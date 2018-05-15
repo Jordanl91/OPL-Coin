@@ -7,7 +7,7 @@
 OPL (Open Platform) Masternode Guide v0.1.0
 OPL Masternode Setup and Maintenance Guide
 
-##Requirements
+## Requirements
 ```
 •3000 more OPL
 •Linux VPS (best ubuntu 16.04)
@@ -315,4 +315,4 @@ Choose number 2 nano to edit, enter the command below and save (ctrl+o, [Enter],
 @reboot /usr/local/bin/opld -daemon
 ```
 
-###Did this help you? Please donate OPL to **Vz16PcurfENgodexZhpqRufEk5NmUt3Fhv** Help me, help others!###
+### Did this help you? Please donate OPL to **Vz16PcurfENgodexZhpqRufEk5NmUt3Fhv** Help me, help others!
