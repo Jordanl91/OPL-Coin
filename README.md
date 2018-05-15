@@ -126,11 +126,6 @@ apt -y install libdb4.8-dev libdb4.8++-dev
 [VPS node configuration]
 ==============================================
 
-Create OPL directory and switch to it:
-```
-    mkdir .opl
-    cd .opl
-```
 Download and extract linux binaries:
 ```
 wget https://github.com/opl-coin/opl.coin/releases/download/0.12.3.1/opl.0.12.3.1.linux.x64.zip && unzip -j opl.0.12.3.1.linux.x64.zip -d /usr/local/bin/ && chmod +x /usr/local/bin/opl*
