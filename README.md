@@ -315,4 +315,3 @@ Choose number 2 nano to edit, enter the command below and save (ctrl+o, [Enter],
 ```
 
 [Did this help you? Please donate OPL to Vz16PcurfENgodexZhpqRufEk5NmUt3Fhv Help me, help others!]
-=================================================================================================
