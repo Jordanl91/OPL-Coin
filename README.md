@@ -9,7 +9,7 @@ OPL Masternode Setup and Maintenance Guide
 
 ## Requirements
 ```
-•Exactly 3000 OPL
+•3000 OPL
 •Linux VPS (best ubuntu 16.04)
 •OPEN PORT: 5567
 ```
